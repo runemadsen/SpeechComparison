@@ -2,7 +2,6 @@
  ___________________________________________________________________ */
 
 import processing.opengl.*;
-import penner.easing.*;
 import java.util.*;
 
 /* Properties
@@ -61,6 +60,7 @@ color[] colors = {
 void setup() 
 {
   size(1000, 800);
+  pixelDensity(2);
   smooth();
   font = createFont("Helvetica-Bold", 12);
 

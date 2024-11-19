@@ -60,6 +60,11 @@ class TotalWord extends DisplayObject
    /* Update
    ___________________________________________________________________ */
    
+   float quartInOut() {
+     float x = map(_time, 0, _duration, 0, 1);
+     return x < 0.5 ? 8 * x * x * x * x : 1 - pow(-2 * x + 2, 4) / 2;
+   }
+   
    void update()
    {
       if(_time <= _duration)   
@@ -70,7 +75,7 @@ class TotalWord extends DisplayObject
             
             _time++;
             
-            _easePercent = Quart.easeInOut(_time, 0, 1, _duration);
+            _easePercent = quartInOut();
             _easeDegree = _easePercent * _totalDegrees;
          }
          else
@@ -275,4 +280,3 @@ class TotalWord extends DisplayObject
       _reset = true;
    }
 }
-
